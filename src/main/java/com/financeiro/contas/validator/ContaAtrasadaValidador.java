@@ -22,8 +22,8 @@ public class ContaAtrasadaValidador {
         if (dias > 3 && dias <= 5) {
             return contaEntity.getValorOriginal().add(calculaMulta(3, contaEntity))
                     .add(calculaJuros(0.002, contaEntity, dias));
-        } elseIf (dias > 5) {
-            
+        } else{
+            if(dias > 5) {
                 return contaEntity.getValorOriginal().add(calculaMulta(5, contaEntity))
                         .add(calculaJuros(0.003, contaEntity, dias));
             }else {
@@ -35,8 +35,8 @@ public class ContaAtrasadaValidador {
 
     }
 
-    private MonetaryAmount calculaMulta(Number valorMulta, ContaEntity contaEntity) {
-        return contaEntity.getValorOriginal().multiply(valorMulta).divide(100);
+    private MonetaryAmount calculaMulta(Number multaPercentual, ContaEntity contaEntity) {
+        return contaEntity.getValorOriginal().multiply(multaPercentual).divide(100);
     }
 
     private MonetaryAmount calculaJuros(Number jurosAoDia, ContaEntity contaEntity, Long dias) {
