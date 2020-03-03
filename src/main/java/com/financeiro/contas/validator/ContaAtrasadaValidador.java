@@ -11,21 +11,19 @@ import java.time.temporal.ChronoUnit;
 @Component
 public class ContaAtrasadaValidador {
 
-
     public ContaListaDTO verificaContaEstaAtrasada(ContaEntity contaEntity) {
-        if (!contaEntity.getDataVencimento().equals(LocalDate.now()) ||
-                contaEntity.getDataVencimento().isAfter(LocalDate.now())) {
+        if (contaEntity.getDataVencimento().isAfter(LocalDate.now())) {
             calculaAtrasos(ChronoUnit.DAYS.between(contaEntity.getDataVencimento(), LocalDate.now()), contaEntity);
         }
         return null;
     }
 
     private MonetaryAmount calculaAtrasos(Long dias, ContaEntity contaEntity) {
-        if (dias > 3 && dias < 5) {
+        if (dias > 3 && dias <= 5) {
             return contaEntity.getValorOriginal().add(calculaMulta(3, contaEntity))
                     .add(calculaJuros(0.002, contaEntity, dias));
-        } else {
-            if(dias > 5) {
+        } elseIf (dias > 5) {
+            
                 return contaEntity.getValorOriginal().add(calculaMulta(5, contaEntity))
                         .add(calculaJuros(0.003, contaEntity, dias));
             }else {
