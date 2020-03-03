@@ -1,8 +1,16 @@
 package com.financeiro.contas.dto;
 
+import lombok.*;
+
 import javax.money.MonetaryAmount;
 import java.time.LocalDate;
 
+
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class ContaDTO {
 
     private Long id;
