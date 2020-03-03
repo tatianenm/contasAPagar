@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.money.MonetaryAmount;
 
-public class Superior3DiasAtraso implements CalculaAtrasos {
+public class Superior3DiasAtraso implements CalculaAtrasosInterface {
 
     private ContaEntity contaEntity;
 
