@@ -2,9 +2,9 @@
  Projeto é uma  API Rest de Contas a Pagar, o banco de dados utilizado é o H2 em memória.
 
   Requisitos:
-     Intellij.
-     jdk 11
-     maven
+     Intellij,
+     jdk 11,
+     maven.
  
   Testar a aplicação:
      usar swagger, postman
