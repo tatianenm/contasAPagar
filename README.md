@@ -17,7 +17,7 @@
 
    Lista Contas a pagar
    URL:GET/contas/v1
-   Retorna lista de contas a pagar corrigidos
+   Retorna lista de conta a pagar com valores corrigidos.
 
    Cadastro de contas a pagar
    URL:POST/contas/v1
