@@ -29,3 +29,4 @@
 
   Melhorias no código:
   Faltou implementação de testes unitários, flyway por falta de tempo.
+  obs.: o sistema não foi finalizado.
