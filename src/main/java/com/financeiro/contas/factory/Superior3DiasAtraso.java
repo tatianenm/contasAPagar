@@ -7,18 +7,8 @@ import javax.money.MonetaryAmount;
 
 public class Superior3DiasAtraso implements CalculaAtrasosInterface {
 
-    private ContaEntity contaEntity;
-
-    private Long dias;
-
-    @Autowired
-    public Superior3DiasAtraso(ContaEntity contaEntity, Long dias) {
-        this.contaEntity = contaEntity;
-        this.dias = dias;
-    }
-
     @Override
-    public MonetaryAmount calculaAtrasos() {
+    public MonetaryAmount calculaAtrasos(ContaEntity contaEntity, Long dias) {
         return contaEntity.getValorOriginal().add(calculaMulta(3, contaEntity))
                 .add(calculaJuros(0.002, contaEntity, dias));
     }

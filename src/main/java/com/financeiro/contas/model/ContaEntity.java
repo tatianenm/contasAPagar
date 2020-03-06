@@ -1,7 +1,10 @@
 package com.financeiro.contas.model;
 
-import lombok.*;
-
+import lombok.Setter;
+import lombok.Getter;
+import lombok.Builder;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import javax.money.MonetaryAmount;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -35,6 +38,10 @@ public class ContaEntity implements Serializable {
 
     @NotNull
     private LocalDate dataPagamento;
+
+    private MonetaryAmount valorCorrigido;
+
+    private Long quantddDiasAtraso;
 
     @Override
     public boolean equals(Object o) {

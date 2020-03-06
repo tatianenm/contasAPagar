@@ -1,14 +1,17 @@
 package com.financeiro.contas.converter;
 
 import com.financeiro.contas.dto.ContaDTO;
+import com.financeiro.contas.dto.ContaListaDTO;
 import com.financeiro.contas.model.ContaEntity;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Component
 public class ContaConverter {
 
     public ContaEntity convertToEntity(ContaDTO contaDTO) {
-      return  ContaEntity.builder()
+        return ContaEntity.builder()
                 .dataPagamento(contaDTO.getDataPagamento())
                 .dataVencimento(contaDTO.getDataVencimento())
                 .id(contaDTO.getId())
@@ -17,7 +20,7 @@ public class ContaConverter {
                 .build();
     }
 
-    public ContaDTO convertToDTO(ContaEntity contaEntity){
+    public ContaDTO convertToDTO(ContaEntity contaEntity) {
         return ContaDTO.builder()
                 .dataPagamento(contaEntity.getDataPagamento())
                 .dataVencimento(contaEntity.getDataVencimento())
@@ -26,6 +29,17 @@ public class ContaConverter {
                 .valorOriginal(contaEntity.getValorOriginal())
                 .build();
 
+    }
+
+    public ContaListaDTO convertToContaListaDTO(ContaEntity contaEntity) {
+        return ContaListaDTO.builder()
+                .dataPagamento(LocalDate.now())
+                .id(contaEntity.getId())
+                .nome(contaEntity.getNome())
+                .qtdDiasAtraso(contaEntity.getQuantddDiasAtraso())
+                .valorCorrigido(contaEntity.getValorCorrigido())
+                .valorOriginal(contaEntity.getValorOriginal())
+                .build();
     }
 
 }
