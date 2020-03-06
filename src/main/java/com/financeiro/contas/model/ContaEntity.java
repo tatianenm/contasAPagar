@@ -28,19 +28,24 @@ public class ContaEntity implements Serializable {
     private Long id;
 
     @NotNull
+    @Column(name = "nome")
     private String nome;
 
     @NotNull
+    @Column(name = "valororiginal")
     private MonetaryAmount valorOriginal;
 
     @NotNull
+    @Column(name = "datavencimento")
     private LocalDate dataVencimento;
 
-    @NotNull
+    @Column(name = "datapagamento")
     private LocalDate dataPagamento;
 
+    @Column(name = "valorcorrigido ")
     private MonetaryAmount valorCorrigido;
 
+    @Column(name = "quantddDiasAtraso")
     private Long quantddDiasAtraso;
 
     @Override

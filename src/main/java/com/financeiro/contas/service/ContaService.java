@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -35,11 +34,15 @@ public class ContaService {
     }
 
     public List<ContaListaDTO> listarContas() {
-     return contaRepository.findAll()
-             .stream()
-             .map(this::verificaContasAtrasadasEAtualizaJuroMultaNoBancoDados)
-             .map(contaConverter::convertToContaListaDTO)
-             .collect(Collectors.toList());
+        var listaContaEntity = contaRepository.findAll();
+        if (Objects.isNull(listaContaEntity)) {
+            throw new ContaNotFoundException();
+        }
+        return listaContaEntity
+                .stream()
+                .map(this::verificaContasAtrasadasEAtualizaJuroMultaNoBancoDados)
+                .map(contaConverter::convertToContaListaDTO)
+                .collect(Collectors.toList());
     }
 
     public ContaEntity salvarCadastro(ContaDTO contaDTO) {
@@ -47,10 +50,10 @@ public class ContaService {
     }
 
     private ContaEntity verificaContasAtrasadasEAtualizaJuroMultaNoBancoDados(ContaEntity contaEntity) {
-        if (contaEntity.getDataVencimento().isAfter(LocalDate.now())) {
+        if (LocalDate.now().isAfter(contaEntity.getDataVencimento())) {
             var dias = ChronoUnit.DAYS.between(contaEntity.getDataVencimento(), LocalDate.now());
             contaEntity.setQuantddDiasAtraso(dias);
-            contaEntity.setValorCorrigido(calculaAtrasosFactory.getContasAtrasadas(contaEntity, dias));
+            contaEntity.setValorCorrigido(calculaAtrasosFactory.calculaContasAtrasadas(contaEntity, dias));
             contaRepository.save(contaEntity);
         }
         return contaEntity;

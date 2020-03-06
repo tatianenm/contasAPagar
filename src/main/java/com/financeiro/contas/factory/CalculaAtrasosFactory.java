@@ -22,7 +22,7 @@ public class CalculaAtrasosFactory {
         this.superior5DiasAtraso = superior5DiasAtraso;
     }
 
-    public MonetaryAmount getContasAtrasadas(ContaEntity contaEntity, Long dias) {
+    public MonetaryAmount calculaContasAtrasadas(ContaEntity contaEntity, Long dias) {
         if (dias <= 3) {
             return ate3DiasAtraso.calculaAtrasos(contaEntity, dias);
         } else if (dias > 3 && dias <= 5) {
