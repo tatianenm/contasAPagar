@@ -12,13 +12,12 @@ CREATE TABLE conta (
   datavencimento Date,
   datapagamento Date,
   valorcorrigido DECIMAL(2,17),
-  quantdddiasatraso Long,
-  last_modification TIMESTAMP
+  quantdddiasatraso Long
 );
 
 
-INSERT INTO conta(id, nome, valororiginal, datavencimento, datapagamento, valorcorrigido, quantdddiasatraso, last_modification)
-VALUES (1, 'Mauricio',500.28, '2020-01-08', null , null, null, CURRENT_TIMESTAMP);
+INSERT INTO conta(id, nome, valororiginal, datavencimento, datapagamento, valorcorrigido, quantdddiasatraso)
+VALUES (1, 'Mauricio',500.28, '2020-01-08', null , null, null);
 
 
 
