@@ -1,9 +1,10 @@
 package com.financeiro.contas.factory;
 
 import com.financeiro.contas.model.ContaEntity;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
-
+@Component
 public class Ate3DiasAtraso implements CalculaAtrasosInterface {
 
     @Override
