@@ -3,7 +3,7 @@ package com.financeiro.contas.factory;
 import com.financeiro.contas.model.ContaEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.money.MonetaryAmount;
+import java.math.BigDecimal;
 
 public class CalculaAtrasosFactory {
 
@@ -22,7 +22,7 @@ public class CalculaAtrasosFactory {
         this.superior5DiasAtraso = superior5DiasAtraso;
     }
 
-    public MonetaryAmount calculaContasAtrasadas(ContaEntity contaEntity, Long dias) {
+    public BigDecimal calculaContasAtrasadas(ContaEntity contaEntity, Long dias) {
         if (dias <= 3) {
             return ate3DiasAtraso.calculaAtrasos(contaEntity, dias);
         } else if (dias > 3 && dias <= 5) {
