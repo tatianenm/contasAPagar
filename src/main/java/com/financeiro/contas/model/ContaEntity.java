@@ -45,7 +45,7 @@ public class ContaEntity implements Serializable {
     @Column(name = "valorcorrigido ")
     private MonetaryAmount valorCorrigido;
 
-    @Column(name = "quantddDiasAtraso")
+    @Column(name = "quantdddiasatraso")
     private Long quantddDiasAtraso;
 
     @Override
