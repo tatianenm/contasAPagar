@@ -27,6 +27,3 @@
   camada service responsável pelas regras de negócio, a factory para facilitar reutilização de código das regras de negócio 
   e o repository responsável pela conexão com banco de dados. DTOs  recebem e devolvem os dados necessários.
 
-  Melhorias no código:
-  Faltou implementação de testes unitários, flyway por falta de tempo.
-  obs.: o sistema não foi finalizado.
