@@ -1,5 +1,6 @@
 package com.financeiro.contas.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Setter;
 import lombok.Getter;
 import lombok.Builder;
