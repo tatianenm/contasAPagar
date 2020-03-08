@@ -9,6 +9,7 @@ import javax.money.MonetaryAmount;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -32,8 +33,8 @@ public class ContaEntity implements Serializable {
     private String nome;
 
     @NotNull
-    @Column(name = "valororiginal")
-    private MonetaryAmount valorOriginal;
+    @Column(name = "valororiginal", precision=17, scale=2)
+    private BigDecimal valorOriginal;
 
     @NotNull
     @Column(name = "datavencimento")
@@ -42,8 +43,8 @@ public class ContaEntity implements Serializable {
     @Column(name = "datapagamento")
     private LocalDate dataPagamento;
 
-    @Column(name = "valorcorrigido ")
-    private MonetaryAmount valorCorrigido;
+    @Column(name = "valorcorrigido ", precision=17, scale=2)
+    private BigDecimal valorCorrigido;
 
     @Column(name = "quantdddiasatraso")
     private Long quantddDiasAtraso;

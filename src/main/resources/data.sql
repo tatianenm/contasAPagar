@@ -7,11 +7,11 @@ DROP ALL OBJECTS;
 
 CREATE TABLE conta (
   id   Long AUTO_INCREMENT PRIMARY KEY,
-  nome VARCHAR(30),
-  valororiginal DECIMAL(17,2),
+  nome VARCHAR(255),
+  valororiginal DECIMAL,
   datavencimento Date,
   datapagamento Date,
-  valorcorrigido DECIMAL(17,2),
+  valorcorrigido DECIMAL,
   quantdddiasatraso Long
 );
 
