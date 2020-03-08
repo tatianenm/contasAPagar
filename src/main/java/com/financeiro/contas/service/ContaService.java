@@ -31,6 +31,7 @@ public class ContaService {
                         ContaConverter contaConverter) {
         this.contaRepository = contaRepository;
         this.contaConverter = contaConverter;
+        this.calculaAtrasosFactory = calculaAtrasosFactory;
     }
 
     public List<ContaListaDTO> listarContas() {
