@@ -1,12 +1,10 @@
 package com.financeiro.contas.model;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Setter;
 import lombok.Getter;
 import lombok.Builder;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import javax.money.MonetaryAmount;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -34,7 +32,7 @@ public class ContaEntity implements Serializable {
     private String nome;
 
     @NotNull
-    @Column(name = "valororiginal", precision=17, scale=2)
+    @Column(name = "valororiginal", precision = 17, scale = 2)
     private BigDecimal valorOriginal;
 
     @NotNull
@@ -44,7 +42,7 @@ public class ContaEntity implements Serializable {
     @Column(name = "datapagamento")
     private LocalDate dataPagamento;
 
-    @Column(name = "valorcorrigido ", precision=17, scale=2)
+    @Column(name = "valorcorrigido ", precision = 17, scale = 2)
     private BigDecimal valorCorrigido;
 
     @Column(name = "quantdddiasatraso")
