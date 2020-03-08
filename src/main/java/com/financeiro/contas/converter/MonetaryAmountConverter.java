@@ -20,10 +20,10 @@ public class MonetaryAmountConverter implements AttributeConverter<MonetaryAmoun
 
     @Override
     public MonetaryAmount convertToEntityAttribute(BigDecimal bigDecimal) {
-        MonetaryAmount valorEmReais = MonetaryAmounts.getDefaultAmountFactory()
-                .setNumber(bigDecimal)
-                .setCurrency("BRL")
-                .create();
+//        MonetaryAmount valorEmReais = MonetaryAmounts.getDefaultAmountFactory()
+//                .setNumber(bigDecimal)
+//                .setCurrency("BRL")
+//                .create();
         return null;
     }
 }
