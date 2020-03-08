@@ -2,9 +2,10 @@ package com.financeiro.contas.factory;
 
 import com.financeiro.contas.model.ContaEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 
+@Component
 public class CalculaAtrasosFactory {
 
     private Ate3DiasAtraso ate3DiasAtraso;

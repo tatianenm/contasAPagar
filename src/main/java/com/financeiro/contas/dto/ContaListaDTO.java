@@ -1,12 +1,8 @@
 package com.financeiro.contas.dto;
 
-import lombok.Setter;
-import lombok.Getter;
-import lombok.Builder;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.money.MonetaryAmount;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Builder
@@ -20,9 +16,9 @@ public class ContaListaDTO {
 
     private String nome;
 
-    private MonetaryAmount valorOriginal;
+    private BigDecimal valorOriginal;
 
-    private MonetaryAmount valorCorrigido;
+    private BigDecimal valorCorrigido;
 
     private Long qtdDiasAtraso;
 
