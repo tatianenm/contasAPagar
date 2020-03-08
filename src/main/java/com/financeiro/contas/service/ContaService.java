@@ -47,6 +47,7 @@ public class ContaService {
     }
 
     public ContaEntity salvarCadastro(ContaDTO contaDTO) {
+        contaDTO.setId(null);
         return contaRepository.save(contaConverter.convertToEntity(contaDTO));
     }
 
