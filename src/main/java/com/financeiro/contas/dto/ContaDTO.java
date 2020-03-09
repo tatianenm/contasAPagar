@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -22,16 +23,19 @@ public class ContaDTO {
     @ApiModelProperty(hidden = true)
     private Long id;
 
+    @NotNull
     private String nome;
 
-    @ApiModelProperty(example = "R$ ###.###,##")
+    @NotNull
     private BigDecimal valorOriginal;
 
     @ApiModelProperty(example = "dd/MM/yyyy")
     @JsonFormat(pattern = "dd/MM/yyyy")
+    @NotNull
     private LocalDate dataVencimento;
 
     @ApiModelProperty(example = "dd/MM/yyyy")
     @JsonFormat(pattern = "dd/MM/yyyy")
+    @NotNull
     private LocalDate dataPagamento;
 }

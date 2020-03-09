@@ -54,6 +54,7 @@ public class ContaService {
     }
 
     private ContaEntity verificaContasAtrasadasEAtualizaJuroMultaNoBancoDados(ContaEntity contaEntity) {
+
         if (LocalDate.now().isAfter(contaEntity.getDataVencimento())) {
             var dias = ChronoUnit.DAYS.between(contaEntity.getDataVencimento(), LocalDate.now());
             contaEntity.setQuantddDiasAtraso(dias);
