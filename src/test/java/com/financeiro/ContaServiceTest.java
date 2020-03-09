@@ -19,6 +19,9 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
 @RunWith(SpringRunner.class)
 public class ContaServiceTest {
 
@@ -47,14 +50,14 @@ public class ContaServiceTest {
 
     @Test
     public void deveListarTodasContasBanco() {
-        Mockito.when(contaRepository.findAll()).thenReturn(Arrays.asList(mockContaEntity()));
-        Mockito.when(contaConverter.convertToContaListaDTO(mockContaEntity())).thenReturn(mockContaListaDTO());
+        when(contaRepository.findAll()).thenReturn(Arrays.asList(mockContaEntity()));
+        when(contaConverter.convertToContaListaDTO(mockContaEntity())).thenReturn(mockContaListaDTO());
 
         List<ContaListaDTO> contaListaDTOS = contaService.listarContas();
 
-        Assert.assertEquals(ID, contaListaDTOS.get(0).getId());
-        Assert.assertEquals(NOME, contaListaDTOS.get(0).getNome());
-        Assert.assertEquals(VALOR_CORRIGIDO, contaListaDTOS.get(0).getValorCorrigido());
+        assertEquals(ID, contaListaDTOS.get(0).getId());
+        assertEquals(NOME, contaListaDTOS.get(0).getNome());
+        assertEquals(VALOR_CORRIGIDO, contaListaDTOS.get(0).getValorCorrigido());
     }
 
     private ContaEntity mockContaEntity() {

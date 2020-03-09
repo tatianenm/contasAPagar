@@ -13,6 +13,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import static org.junit.Assert.*;
+
 @RunWith(SpringRunner.class)
 public class ContaConverterTest {
 
@@ -45,12 +47,12 @@ public class ContaConverterTest {
 
         ContaEntity contaEntity = contaConverter.convertToEntity(contaDTO);
 
-        Assert.assertNotNull(contaEntity);
-        Assert.assertEquals(contaEntity.getId(), contaDTO.getId());
-        Assert.assertEquals(contaEntity.getNome(), contaDTO.getNome());
-        Assert.assertEquals(contaEntity.getValorOriginal(), contaDTO.getValorOriginal());
-        Assert.assertEquals(contaEntity.getDataVencimento(), contaDTO.getDataVencimento());
-        Assert.assertEquals(contaEntity.getDataPagamento(), contaDTO.getDataPagamento());
+        assertNotNull(contaEntity);
+        assertEquals(contaEntity.getId(), contaDTO.getId());
+        assertEquals(contaEntity.getNome(), contaDTO.getNome());
+        assertEquals(contaEntity.getValorOriginal(), contaDTO.getValorOriginal());
+        assertEquals(contaEntity.getDataVencimento(), contaDTO.getDataVencimento());
+        assertEquals(contaEntity.getDataPagamento(), contaDTO.getDataPagamento());
     }
 
     @Test
@@ -65,12 +67,12 @@ public class ContaConverterTest {
 
         ContaDTO contaDTO = contaConverter.convertToDTO(contaEntity);
 
-        Assert.assertNotNull(contaDTO);
-        Assert.assertEquals(contaDTO.getId(), contaEntity.getId());
-        Assert.assertEquals(contaDTO.getNome(), contaEntity.getNome());
-        Assert.assertEquals(contaDTO.getValorOriginal(), contaEntity.getValorOriginal());
-        Assert.assertEquals(contaDTO.getDataVencimento(), contaEntity.getDataVencimento());
-        Assert.assertEquals(contaDTO.getDataPagamento(), contaEntity.getDataPagamento());
+        assertNotNull(contaDTO);
+        assertEquals(contaDTO.getId(), contaEntity.getId());
+        assertEquals(contaDTO.getNome(), contaEntity.getNome());
+        assertEquals(contaDTO.getValorOriginal(), contaEntity.getValorOriginal());
+        assertEquals(contaDTO.getDataVencimento(), contaEntity.getDataVencimento());
+        assertEquals(contaDTO.getDataPagamento(), contaEntity.getDataPagamento());
     }
 
     @Test
@@ -86,13 +88,13 @@ public class ContaConverterTest {
 
         ContaListaDTO contaListaDTO = contaConverter.convertToContaListaDTO(contaEntity);
 
-        Assert.assertNotNull(contaListaDTO);
-        Assert.assertEquals(contaListaDTO.getId(), contaEntity.getId());
-        Assert.assertEquals(contaListaDTO.getNome(), contaEntity.getNome());
-        Assert.assertEquals(contaListaDTO.getValorOriginal(), contaEntity.getValorOriginal());
-        Assert.assertEquals(contaListaDTO.getDataPagamento(), contaEntity.getDataPagamento());
-        Assert.assertEquals(contaListaDTO.getQtdDiasAtraso(), contaEntity.getQuantddDiasAtraso());
-        Assert.assertEquals(contaListaDTO.getValorCorrigido(), contaEntity.getValorCorrigido());
+        assertNotNull(contaListaDTO);
+        assertEquals(contaListaDTO.getId(), contaEntity.getId());
+        assertEquals(contaListaDTO.getNome(), contaEntity.getNome());
+        assertEquals(contaListaDTO.getValorOriginal(), contaEntity.getValorOriginal());
+        assertEquals(contaListaDTO.getDataPagamento(), contaEntity.getDataPagamento());
+        assertEquals(contaListaDTO.getQtdDiasAtraso(), contaEntity.getQuantddDiasAtraso());
+        assertEquals(contaListaDTO.getValorCorrigido(), contaEntity.getValorCorrigido());
     }
 
 
