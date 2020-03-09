@@ -17,7 +17,7 @@ public class Superior5DiasAtraso implements CalculaAtrasosInterface {
 
     private BigDecimal calculaMulta(Double multaPercentual, ContaEntity contaEntity) {
         return contaEntity.getValorOriginal().multiply(new BigDecimal(multaPercentual))
-                .divide(new BigDecimal(100), 2, RoundingMode.HALF_EVEN);
+                .divide(new BigDecimal(100));
     }
 
     private BigDecimal calculaJuros(Double jurosAoDia, ContaEntity contaEntity, Long dias) {

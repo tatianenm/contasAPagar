@@ -19,12 +19,15 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class ContaListaDTO {
 
+    @ApiModelProperty(hidden = true)
     private Long id;
 
     private String nome;
 
+    @ApiModelProperty(example = "R$ ###.###,##")
     private BigDecimal valorOriginal;
 
+    @ApiModelProperty(example = "R$ ###.###,##")
     private BigDecimal valorCorrigido;
 
     private Long qtdDiasAtraso;
