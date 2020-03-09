@@ -10,6 +10,8 @@ import com.financeiro.contas.repository.ContaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
@@ -55,7 +57,8 @@ public class ContaService {
         if (LocalDate.now().isAfter(contaEntity.getDataVencimento())) {
             var dias = ChronoUnit.DAYS.between(contaEntity.getDataVencimento(), LocalDate.now());
             contaEntity.setQuantddDiasAtraso(dias);
-            contaEntity.setValorCorrigido(calculaAtrasosFactory.calculaContasAtrasadas(contaEntity, dias));
+            contaEntity.setValorCorrigido(calculaAtrasosFactory
+                    .calculaContasAtrasadas(contaEntity, dias).setScale(2, RoundingMode.HALF_EVEN));
             contaRepository.save(contaEntity);
         }
         return contaEntity;

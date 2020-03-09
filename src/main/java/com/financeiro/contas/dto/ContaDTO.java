@@ -24,6 +24,7 @@ public class ContaDTO {
 
     private String nome;
 
+    @ApiModelProperty(example = "R$ ###.###,##")
     private BigDecimal valorOriginal;
 
     @ApiModelProperty(example = "dd/MM/yyyy")
