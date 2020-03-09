@@ -3,6 +3,8 @@ package com.financeiro.contas.converter;
 import com.financeiro.contas.dto.ContaDTO;
 import com.financeiro.contas.dto.ContaListaDTO;
 import com.financeiro.contas.model.ContaEntity;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
